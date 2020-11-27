@@ -2,11 +2,15 @@ package com.gestion.banque.entity;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
@@ -22,7 +26,8 @@ import javax.persistence.Table;
 @Table(name = "compte")
 public abstract class Compte {
 	@Id
-	private String codeCompte;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long codeCompte;
 	private Date dateCreation;
 	private double solde;
 
@@ -37,19 +42,18 @@ public abstract class Compte {
 		super();
 	}
 
-	public Compte(String codeCompte, Date dateCreation, double solde, Client client) {
+	public Compte(Date dateCreation, double solde, Client client) {
 		super();
-		this.codeCompte = codeCompte;
 		this.dateCreation = dateCreation;
 		this.solde = solde;
 		this.client = client;
 	}
 
-	public String getCodeCompte() {
+	public Long getCodeCompte() {
 		return codeCompte;
 	}
 
-	public void setCodeCompte(String codeCompte) {
+	public void setCodeCompte(Long codeCompte) {
 		this.codeCompte = codeCompte;
 	}
 

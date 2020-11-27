@@ -1,6 +1,7 @@
 package com.gestion.banque.entity;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -15,8 +16,8 @@ public class CompteCourant extends Compte {
 		super();
 	}
 
-	public CompteCourant(String codeCompte, Date dateCreation, double solde, Client client,double decouvert) {
-		super(codeCompte, dateCreation, solde,client);
+	public CompteCourant(Date dateCreation, double solde, Client client,double decouvert) {
+		super(dateCreation, solde,client);
 		this.decouvert = decouvert;
 	}
 

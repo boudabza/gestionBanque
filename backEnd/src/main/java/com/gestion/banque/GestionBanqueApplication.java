@@ -32,7 +32,7 @@ public class GestionBanqueApplication  {
 		CompteRepository secondCompteRepository = ctx.getBean(CompteRepository.class);
 		ClientRepository clientRepository = ctx.getBean(ClientRepository.class);
 		Client client = clientRepository.save(new Client("hatim", "hatim@gmail.com"));
-		secondCompteRepository.save(new CompteCourant("c1", new Date(), 900, client, 600));
+		secondCompteRepository.save(new CompteCourant(new Date(), 900, client, 600));
 	}
 	
 //	@Bean
